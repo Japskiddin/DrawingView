@@ -1,1 +1,1 @@
--keep public class com.raed.drawingview.DrawingView
+-keep public class io.github.japskiddin.drawingview.DrawingView
