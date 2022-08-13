@@ -1,6 +1,16 @@
 apply plugin: 'com.android.application'
 
 android {
+  packagingOptions {
+    jniLibs {
+      excludes += ['**/kotlin/**', 'META-INF/androidx.*', 'META-INF/proguard/androidx-*']
+    }
+    resources {
+      excludes +=
+          ['/META-INF/*.kotlin_module', '**/kotlin/**', '**/*.txt', '**/*.xml', '**/*.properties', 'META-INF/DEPENDENCIES', 'META-INF/LICENSE', 'META-INF/LICENSE.txt', 'META-INF/license.txt', 'META-INF/NOTICE', 'META-INF/NOTICE.txt', 'META-INF/notice.txt', 'META-INF/ASL2.0', 'META-INF/*.version', 'META-INF/androidx.*', 'META-INF/proguard/androidx-*']
+    }
+  }
+
   compileSdkVersion 33
   defaultConfig {
     applicationId "io.github.japskiddin.drawingviewapp"
@@ -15,10 +25,11 @@ android {
       proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
     }
   }
+  namespace 'io.github.japskiddin.drawingviewapp'
 }
 
 dependencies {
-  implementation 'androidx.appcompat:appcompat:1.4.2'
+  implementation 'androidx.appcompat:appcompat:1.5.0'
   implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
   implementation project(":drawingview")
 }
